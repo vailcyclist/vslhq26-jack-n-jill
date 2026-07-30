@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:5188",
+  "dispatchReportPath": "/api/notifications/dispatch-report",
+  "emailDetailsPath": "/api/notifications/email/details",
+  "teamsDetailsPath": "/api/notifications/teams/details"
+}

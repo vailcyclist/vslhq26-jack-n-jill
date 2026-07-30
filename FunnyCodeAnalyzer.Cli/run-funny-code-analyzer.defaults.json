@@ -1,0 +1,10 @@
+{
+  "DefaultUserIdentifier": "dev-a-token",
+  "RepositoryPath": "C:\\Users\\Public\\Documents\\DevelopmentWork\\funny-code-analyzer\\FunnyCodeAnalyzer.Cli\\demo-repo",
+  "SourceControl": "directory",
+  "HumorApiConfig": "C:\\Users\\Public\\Documents\\DevelopmentWork\\funny-code-analyzer\\FunnyCodeAnalyzer.Cli\\humor-api.client.json",
+  "OutputDirectory": "C:\\Users\\Public\\Documents\\DevelopmentWork\\funny-code-analyzer\\FunnyCodeAnalyzer.Cli\\output",
+  "TodoThreshold": 1,
+  "MonsterLines": 50,
+  "LongMethodLines": 20
+}
