@@ -173,7 +173,7 @@ Important API config keys:
 
 ## Demo (required)
 
-- Video file in this repo (preferred): `./demo/static-punalyzer.demo.mp4`
+- Video file in this repo (preferred): `./static-punalyzer.demo.mp4`
 
 ## Known limitations
 
