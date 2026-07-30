@@ -55,26 +55,54 @@ The solution consists of three primary components:
    - Stores user profiles, including email address, Teams username, and unique user token.
    - Tracks issue counts per user and exposes metrics.
 
-flowchart TD
-    A[Console Application] --> B[Local Directory or Repo]
-    B --> C{Git or SVN?}
-    C -->|Yes| D[Read Commit Metadata]
-    C -->|No| E[Analyze Files Only]
+[Local Directory or Repo]
+          |
+          v
+[Console Application]
+          |
+          v
+[Detect Git or SVN Working Copy]
+          |
+          +--> If Git/SVN:
+          |       - Read commit metadata
+          |       - Attempt to map detected issues to users
+          |
+          +--> If not Git/SVN:
+                  - Analyze files without commit attribution
 
-    A --> F[Static Analysis Analyzer]
-    F --> G[Detected Issues]
+[Console Application]
+          |
+          v
+[Static Analysis Analyzer]
+          |
+          v
+[Detected Issues]
+          |
+          v
+[API]
+          |
+          +--> [Pun Catalog]
+          |       - Current implementation: JSON configuration file
+          |       - Future implementation: LLM-based pun generation
+          |
+          +--> [User Profiles]
+          |       - Email address
+          |       - Teams username
+          |       - User token or unique identifier
+          |
+          +--> [Metrics]
+                  - Issue tallies per user
+                  - Issue counts by type
 
-    G --> H[API]
-    H --> I[Pun Generation]
-    H --> J[User Issue Metrics]
-    H --> K[User Profiles]
+[API]
+          |
+          v
+[Console Application]
+          |
+          +--> [Prepared Microsoft Teams Notification]
+          |
+          +--> [Prepared Email Notification]
 
-    I --> A
-    J --> A
-    K --> A
-
-    A --> L[Microsoft Teams Notification]
-    A --> M[Email Notification]
 
 ## Tech stack
 
