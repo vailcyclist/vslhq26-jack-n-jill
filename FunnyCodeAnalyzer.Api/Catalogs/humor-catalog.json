@@ -1,0 +1,334 @@
+{
+  "version": "2.0",
+  "defaultCulture": "en-US",
+  "defaults": {
+    "humorLevel": "lightHearted",
+    "topic": "general",
+    "channel": "teams",
+    "fallbackTopic": "general",
+    "fallbackHumorLevel": "lightHearted",
+    "allowAdultHumor": false,
+    "allowSarcasm": true,
+    "allowInsults": false
+  },
+  "humorLevels": {
+    "kidFriendly": {
+      "displayName": "Kid-Friendly",
+      "description": "Silly, safe, playful, no sarcasm or adult references.",
+      "allowSarcasm": false,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 0
+    },
+    "lightHearted": {
+      "displayName": "Light-Hearted",
+      "description": "Friendly workplace humor with gentle teasing.",
+      "allowSarcasm": false,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 1
+    },
+    "average": {
+      "displayName": "Average",
+      "description": "Casual developer humor with mild sarcasm.",
+      "allowSarcasm": true,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 2
+    },
+    "sarcastic": {
+      "displayName": "Sarcastic",
+      "description": "Dry humor and stronger teasing, still workplace-safe.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": false,
+      "maxSpice": 3
+    },
+    "spicy": {
+      "displayName": "Spicy",
+      "description": "More dramatic, snarky, and chaotic, but no profanity.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": false,
+      "maxSpice": 4
+    },
+    "dirty": {
+      "displayName": "Dirty",
+      "description": "Adult humor. Disabled by default. Use carefully.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": true,
+      "maxSpice": 5
+    }
+  },
+  "topics": {
+    "general": {
+      "displayName": "General",
+      "aliases": ["default", "none", "generic"]
+    },
+    "starTrek": {
+      "displayName": "Star Trek",
+      "aliases": ["trek", "enterprise", "federation", "vulcan"]
+    },
+    "starWars": {
+      "displayName": "Star Wars",
+      "aliases": ["jedi", "sith", "force", "empire"]
+    },
+    "football": {
+      "displayName": "Football",
+      "aliases": ["nfl", "touchdown", "quarterback", "gridiron"]
+    },
+    "fantasy": {
+      "displayName": "Fantasy",
+      "aliases": ["dragon", "wizard", "goblin", "quest"]
+    },
+    "pirate": {
+      "displayName": "Pirate",
+      "aliases": ["arr", "ship", "captain", "treasure"]
+    },
+    "corporate": {
+      "displayName": "Corporate",
+      "aliases": ["office", "meeting", "synergy", "alignment"]
+    }
+  },
+  "channels": {
+    "email": {
+      "subjectTemplates": [
+        {
+          "id": "email-subject-general-001",
+          "template": "Code goblin report: {IssueCount} finding(s) across {WorkingFileCount} file(s)",
+          "humorLevels": ["kidFriendly", "lightHearted", "average"],
+          "topics": ["general"],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-startrek-001",
+          "template": "Captain's log: {IssueCount} anomaly/anomalies detected in {WorkingFileCount} file(s)",
+          "humorLevels": ["lightHearted", "average", "sarcastic"],
+          "topics": ["starTrek"],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-starwars-001",
+          "template": "Disturbance in the source: {IssueCount} issue(s) found",
+          "humorLevels": ["lightHearted", "average", "sarcastic"],
+          "topics": ["starWars"],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-football-001",
+          "template": "Code review flag on the play: {IssueCount} finding(s)",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["football"],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "openingTemplates": [
+        {
+          "id": "email-opening-general-001",
+          "template": "Hello {RecipientName},",
+          "humorLevels": ["kidFriendly", "lightHearted", "average", "sarcastic", "spicy"],
+          "topics": ["general", "starTrek", "starWars", "football", "fantasy", "pirate", "corporate"],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-opening-startrek-001",
+          "template": "{RecipientName}, report to the bridge.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["starTrek"],
+          "weight": 8,
+          "enabled": true
+        },
+        {
+          "id": "email-opening-starwars-001",
+          "template": "{RecipientName}, the analyzer senses a disturbance.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["starWars"],
+          "weight": 8,
+          "enabled": true
+        }
+      ],
+      "bodyLeadTemplates": [],
+      "closingTemplates": []
+    },
+    "teams": {
+      "subjectTemplates": [],
+      "openingTemplates": [],
+      "bodyLeadTemplates": [],
+      "closingTemplates": []
+    }
+  },
+  "issues": {
+    "TodoComment": {
+      "displayName": "TODO Comment",
+      "severity": "info",
+      "defaultTopic": "general",
+      "tags": ["techDebt", "comments", "maintenance"],
+      "messages": [
+        {
+          "id": "todo-general-light-001",
+          "template": "A TODO has set up camp in the source tree and appears to be renting indefinitely.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["general"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "todo-startrek-average-001",
+          "template": "A TODO has entered a stable orbit around the codebase. Starfleet recommends intervention.",
+          "humorLevels": ["average", "sarcastic"],
+          "topics": ["starTrek"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "todo-starwars-light-001",
+          "template": "This TODO has gone to the Dagobah system to hide from sprint planning.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["starWars"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 8,
+          "enabled": true
+        },
+        {
+          "id": "todo-football-light-001",
+          "template": "This TODO has been sitting on the bench all season waiting for a refactor call-up.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["football"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 8,
+          "enabled": true
+        }
+      ]
+    },
+    "MonsterClass": {
+      "displayName": "Monster Class",
+      "severity": "warning",
+      "defaultTopic": "fantasy",
+      "tags": ["complexity", "maintainability", "design"],
+      "messages": [
+        {
+          "id": "monster-general-light-001",
+          "template": "This class is not a class. It is a neighborhood.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["general"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "monster-startrek-average-001",
+          "template": "This class has achieved warp factor 9 and may need structural integrity fields.",
+          "humorLevels": ["average", "sarcastic"],
+          "topics": ["starTrek"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "monster-starwars-average-001",
+          "template": "This class is fully operational and roughly the size of a battle station.",
+          "humorLevels": ["average", "sarcastic"],
+          "topics": ["starWars"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "monster-football-light-001",
+          "template": "This class is carrying the whole offense and still playing special teams.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["football"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true
+        }
+      ]
+    },
+    "LongMethod": {
+      "displayName": "Long Method",
+      "severity": "warning",
+      "defaultTopic": "general",
+      "tags": ["complexity", "readability", "refactoring"],
+      "messages": [
+        {
+          "id": "longmethod-general-light-001",
+          "template": "This method started as logic and ended as a journey.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["general"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "longmethod-startrek-average-001",
+          "template": "This method has a five-year mission and appears to be seeking new responsibilities.",
+          "humorLevels": ["average", "sarcastic"],
+          "topics": ["starTrek"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "longmethod-starwars-light-001",
+          "template": "This method is long enough to need its own opening crawl.",
+          "humorLevels": ["lightHearted", "average"],
+          "topics": ["starWars"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "longmethod-football-average-001",
+          "template": "This method is on a 98-yard drive with no commercial breaks.",
+          "humorLevels": ["average", "sarcastic"],
+          "topics": ["football"],
+          "channels": ["email", "teams", "cli"],
+          "spice": 2,
+          "weight": 8,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  "fallbacks": {
+    "noTopicMatch": [
+      {
+        "template": "The analyzer found something suspicious, but the joke generator wandered off.",
+        "humorLevels": ["kidFriendly", "lightHearted", "average"],
+        "topics": ["general"],
+        "channels": ["email", "teams", "cli"],
+        "weight": 10,
+        "enabled": true
+      }
+    ],
+    "noHumorLevelMatch": [
+      {
+        "template": "A finding was detected. Humor unavailable; goblin currently rebooting.",
+        "humorLevels": ["kidFriendly", "lightHearted"],
+        "topics": ["general"],
+        "channels": ["email", "teams", "cli"],
+        "weight": 10,
+        "enabled": true
+      }
+    ]
+  }
+}

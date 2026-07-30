@@ -1,0 +1,6 @@
+@FunnyCodeAnalyzer.Api_HostAddress = http://localhost:5104
+
+GET {{FunnyCodeAnalyzer.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

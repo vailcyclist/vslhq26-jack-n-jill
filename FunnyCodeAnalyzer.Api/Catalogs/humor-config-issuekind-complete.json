@@ -1,0 +1,5331 @@
+{
+  "version": "2.1",
+  "defaultCulture": "en-US",
+  "defaults": {
+    "humorLevel": "lightHearted",
+    "topic": "general",
+    "channel": "teams",
+    "fallbackTopic": "general",
+    "fallbackHumorLevel": "lightHearted",
+    "allowAdultHumor": false,
+    "allowSarcasm": true,
+    "allowInsults": false
+  },
+  "humorLevels": {
+    "kidFriendly": {
+      "displayName": "Kid-Friendly",
+      "description": "Silly, safe, playful, no sarcasm or adult references.",
+      "allowSarcasm": false,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 0
+    },
+    "lightHearted": {
+      "displayName": "Light-Hearted",
+      "description": "Friendly workplace humor with gentle teasing.",
+      "allowSarcasm": false,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 1
+    },
+    "average": {
+      "displayName": "Average",
+      "description": "Casual developer humor with mild sarcasm.",
+      "allowSarcasm": true,
+      "allowMildInsults": false,
+      "allowProfanity": false,
+      "maxSpice": 2
+    },
+    "sarcastic": {
+      "displayName": "Sarcastic",
+      "description": "Dry humor and stronger teasing, still workplace-safe.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": false,
+      "maxSpice": 3
+    },
+    "spicy": {
+      "displayName": "Spicy",
+      "description": "More dramatic, snarky, and chaotic, but no profanity.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": false,
+      "maxSpice": 4
+    },
+    "dirty": {
+      "displayName": "Dirty",
+      "description": "Adult humor. Disabled by default. Use carefully.",
+      "allowSarcasm": true,
+      "allowMildInsults": true,
+      "allowProfanity": true,
+      "maxSpice": 5
+    }
+  },
+  "topics": {
+    "general": {
+      "displayName": "General",
+      "aliases": [
+        "default",
+        "none",
+        "generic"
+      ]
+    },
+    "starTrek": {
+      "displayName": "Star Trek",
+      "aliases": [
+        "trek",
+        "enterprise",
+        "federation",
+        "vulcan"
+      ]
+    },
+    "starWars": {
+      "displayName": "Star Wars",
+      "aliases": [
+        "jedi",
+        "sith",
+        "force",
+        "empire"
+      ]
+    },
+    "football": {
+      "displayName": "Football",
+      "aliases": [
+        "nfl",
+        "touchdown",
+        "quarterback",
+        "gridiron"
+      ]
+    },
+    "fantasy": {
+      "displayName": "Fantasy",
+      "aliases": [
+        "dragon",
+        "wizard",
+        "goblin",
+        "quest"
+      ]
+    },
+    "pirate": {
+      "displayName": "Pirate",
+      "aliases": [
+        "arr",
+        "ship",
+        "captain",
+        "treasure"
+      ]
+    },
+    "corporate": {
+      "displayName": "Corporate",
+      "aliases": [
+        "office",
+        "meeting",
+        "synergy",
+        "alignment"
+      ]
+    }
+  },
+  "channels": {
+    "email": {
+      "subjectTemplates": [
+        {
+          "id": "email-subject-general-001",
+          "template": "Code goblin report: {IssueCount} finding(s) across {WorkingFileCount} file(s)",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-startrek-001",
+          "template": "Captain's log: {IssueCount} anomaly/anomalies detected in {WorkingFileCount} file(s)",
+          "humorLevels": [
+            "lightHearted",
+            "average",
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-starwars-001",
+          "template": "Disturbance in the source: {IssueCount} issue(s) found",
+          "humorLevels": [
+            "lightHearted",
+            "average",
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-subject-football-001",
+          "template": "Code review flag on the play: {IssueCount} finding(s)",
+          "humorLevels": [
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "openingTemplates": [
+        {
+          "id": "email-opening-general-001",
+          "template": "Hello {RecipientName},",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average",
+            "sarcastic",
+            "spicy"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        },
+        {
+          "id": "email-opening-startrek-001",
+          "template": "{RecipientName}, report to the bridge.",
+          "humorLevels": [
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 8,
+          "enabled": true
+        },
+        {
+          "id": "email-opening-starwars-001",
+          "template": "{RecipientName}, the analyzer senses a disturbance.",
+          "humorLevels": [
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 8,
+          "enabled": true
+        }
+      ],
+      "bodyLeadTemplates": [
+        {
+          "id": "email-body-general-001",
+          "template": "I inspected {WorkingFileCount} working file(s) and found {IssueCount} finding(s).",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "closingTemplates": [
+        {
+          "id": "email-closing-general-001",
+          "template": "Regards,\nThe Friendly Static Analyzer",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "email"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ]
+    },
+    "teams": {
+      "subjectTemplates": [
+        {
+          "id": "teams-subject-general-001",
+          "template": "Teams alert: {IssueCount} finding(s) in {WorkingFileCount} working file(s)",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average",
+            "sarcastic"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "teams"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "openingTemplates": [
+        {
+          "id": "teams-opening-general-001",
+          "template": "{RecipientName}, the analyzer has emerged from the source tree with notes.",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average",
+            "sarcastic",
+            "spicy"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "teams"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "bodyLeadTemplates": [
+        {
+          "id": "teams-body-general-001",
+          "template": "Working files scanned: {WorkingFileCount}. Findings discovered: {IssueCount}.",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average",
+            "sarcastic"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "teams"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ],
+      "closingTemplates": [
+        {
+          "id": "teams-closing-general-001",
+          "template": "May your next commit be smaller and less theatrical.",
+          "humorLevels": [
+            "kidFriendly",
+            "lightHearted",
+            "average",
+            "sarcastic",
+            "spicy"
+          ],
+          "topics": [
+            "general",
+            "starTrek",
+            "starWars",
+            "football",
+            "fantasy",
+            "pirate",
+            "corporate"
+          ],
+          "channels": [
+            "teams"
+          ],
+          "weight": 10,
+          "enabled": true
+        }
+      ]
+    },
+    "cli": {
+      "subjectTemplates": [],
+      "openingTemplates": [],
+      "bodyLeadTemplates": [],
+      "closingTemplates": []
+    }
+  },
+  "issues": {
+    "TodoComment": {
+      "displayName": "TODO Comment",
+      "severity": "info",
+      "defaultTopic": "general",
+      "tags": [
+        "techDebt",
+        "comments",
+        "maintenance"
+      ],
+      "messages": [
+        {
+          "id": "todo-general-kidfriendly-001",
+          "template": "A TODO was found taking a tiny nap in the source tree.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-general-lighthearted-001",
+          "template": "A TODO has set up camp in the source tree and appears to be renting indefinitely.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-general-average-001",
+          "template": "This TODO says 'later,' which is developer for 'future archaeology.'",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-general-sarcastic-001",
+          "template": "This TODO has been promoted from reminder to permanent resident.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-general-spicy-001",
+          "template": "This TODO has survived so long it may be mentoring junior TODOs.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-general-dirty-001",
+          "template": "This TODO has been hanging around long enough to make the backlog blush.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-startrek-kidfriendly-001",
+          "template": "A TODO is waiting patiently on the bridge for its next mission.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-startrek-lighthearted-001",
+          "template": "A TODO has entered a stable orbit around the codebase. Starfleet recommends intervention.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-startrek-average-001",
+          "template": "This TODO is on a five-year mission to avoid completion.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-startrek-sarcastic-001",
+          "template": "Captain's log: this TODO is still boldly going nowhere.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-startrek-spicy-001",
+          "template": "This TODO has ignored more red alerts than a malfunctioning holodeck.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-startrek-dirty-001",
+          "template": "This TODO is spending suspiciously long in the holodeck of deferred work.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-starwars-kidfriendly-001",
+          "template": "This TODO is hiding with the droids until someone gives it a task.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-starwars-lighthearted-001",
+          "template": "This TODO has gone to the Dagobah system to hide from sprint planning.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-starwars-average-001",
+          "template": "A TODO was found using the Force to avoid refinement.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-starwars-sarcastic-001",
+          "template": "This TODO has joined the Rebellion against completion.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-starwars-spicy-001",
+          "template": "This TODO has gone full Sith: ancient, angry, and somehow still in the main branch.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-starwars-dirty-001",
+          "template": "This TODO has been flirting with the dark side of technical debt.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-football-kidfriendly-001",
+          "template": "This TODO is sitting on the bench waiting for coach to call its name.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-football-lighthearted-001",
+          "template": "This TODO has been sitting on the bench all season waiting for a refactor call-up.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-football-average-001",
+          "template": "This TODO is questionable for Sunday and doubtful for the sprint.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-football-sarcastic-001",
+          "template": "This TODO has more inactive weeks than a fourth-string punter.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-football-spicy-001",
+          "template": "This TODO just drew a flag for delay of game against the entire codebase.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-football-dirty-001",
+          "template": "This TODO has been tackled behind the line so many times the backlog needs a shower.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-fantasy-kidfriendly-001",
+          "template": "A tiny TODO goblin is guarding a future quest.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-fantasy-lighthearted-001",
+          "template": "This TODO is a side quest waiting near the edge of the source map.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-fantasy-average-001",
+          "template": "A TODO has become a quest marker nobody accepts.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-fantasy-sarcastic-001",
+          "template": "This TODO claims to be optional, which is how all cursed quests begin.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-fantasy-spicy-001",
+          "template": "This TODO is now guarded by a dragon named 'Next Sprint.'",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-fantasy-dirty-001",
+          "template": "This TODO has been rolling around in the dungeon of deferred decisions.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-pirate-kidfriendly-001",
+          "template": "Arrr, a TODO has buried a tiny treasure map in the code.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-pirate-lighthearted-001",
+          "template": "This TODO has buried treasure and no one remembers where the map is.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-pirate-average-001",
+          "template": "A TODO is adrift in the source sea with no captain assigned.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-pirate-sarcastic-001",
+          "template": "This TODO says 'later,' which is pirate for 'lost at sea.'",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-pirate-spicy-001",
+          "template": "This TODO has mutinied against the sprint board.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-pirate-dirty-001",
+          "template": "This TODO has been below deck with the questionable refactors.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "todo-corporate-kidfriendly-001",
+          "template": "This TODO is waiting for a friendly follow-up meeting.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-corporate-lighthearted-001",
+          "template": "This TODO has requested alignment before action.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-corporate-average-001",
+          "template": "This TODO has been parked until stakeholders achieve consensus.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-corporate-sarcastic-001",
+          "template": "This TODO was action-itemed into another dimension.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-corporate-spicy-001",
+          "template": "This TODO has survived enough syncs to qualify as a strategic initiative.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "todo-corporate-dirty-001",
+          "template": "This TODO has spent too much time in closed-door alignment sessions.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    },
+    "CommentedOutCode": {
+      "displayName": "Commented-Out Code",
+      "severity": "info",
+      "defaultTopic": "general",
+      "tags": [
+        "deadCode",
+        "comments",
+        "cleanup"
+      ],
+      "messages": [
+        {
+          "id": "commentedout-general-kidfriendly-001",
+          "template": "Commented-out code was found playing hide-and-seek.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-general-lighthearted-001",
+          "template": "Commented-out code is lingering like a note nobody wants to throw away.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-general-average-001",
+          "template": "This commented-out code is dead code wearing sunglasses.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-general-sarcastic-001",
+          "template": "This code was commented out but still insists on attending standup.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-general-spicy-001",
+          "template": "This commented-out block is haunting the file like legacy confetti.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-general-dirty-001",
+          "template": "This commented-out code is lounging around the file looking indecently comfortable.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-startrek-kidfriendly-001",
+          "template": "Commented-out code is waiting in the transporter buffer.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-startrek-lighthearted-001",
+          "template": "This commented-out code is stuck in the transporter pattern and may need deletion.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-startrek-average-001",
+          "template": "Commented-out code detected. It appears to be living in a parallel timeline.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-startrek-sarcastic-001",
+          "template": "This commented-out block is the Mirror Universe version of maintainability.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-startrek-spicy-001",
+          "template": "This dead code has gone full redshirt and still refuses to leave the episode.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-startrek-dirty-001",
+          "template": "This commented-out code is having an awkward holodeck moment with the past.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-starwars-kidfriendly-001",
+          "template": "Commented-out code is hiding in a little Jawa sandcrawler.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-starwars-lighthearted-001",
+          "template": "This commented-out code is hiding on Tatooine waiting for a sequel.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-starwars-average-001",
+          "template": "Commented-out code found. The archives are incomplete, but the clutter is not.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-starwars-sarcastic-001",
+          "template": "This block was struck down and somehow became more visible than anyone imagined.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-starwars-spicy-001",
+          "template": "This commented-out code is Force-ghosting the maintainers.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-starwars-dirty-001",
+          "template": "This commented-out code has been seduced by the dark side of clutter.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-football-kidfriendly-001",
+          "template": "Commented-out code is standing on the sideline with a tiny helmet.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-football-lighthearted-001",
+          "template": "This commented-out code has been benched but still has its pads on.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-football-average-001",
+          "template": "Commented-out code is inactive for game day but still taking roster space.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-football-sarcastic-001",
+          "template": "This commented-out block got cut from the playbook and refused to leave the locker room.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-football-spicy-001",
+          "template": "This code has been benched so long it is arguing with the chain crew.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-football-dirty-001",
+          "template": "This commented-out code is making a messy pile in the locker room.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-fantasy-kidfriendly-001",
+          "template": "Commented-out code is a sleepy little ghost in the castle.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-fantasy-lighthearted-001",
+          "template": "This commented-out code is a ghost in the dungeon asking to be remembered.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-fantasy-average-001",
+          "template": "Commented-out code detected. The necromancer of legacy logic is nearby.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-fantasy-sarcastic-001",
+          "template": "This code died heroically and then stayed in the file for no reason.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-fantasy-spicy-001",
+          "template": "This commented-out block is a zombie shambling through the source tree.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-fantasy-dirty-001",
+          "template": "This commented-out corpse is getting a little too cozy in the crypt.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-pirate-kidfriendly-001",
+          "template": "Commented-out code is hiding in the crow's nest.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-pirate-lighthearted-001",
+          "template": "This commented-out code was marooned but keeps waving from shore.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-pirate-average-001",
+          "template": "Commented-out code is floating beside the ship like suspicious driftwood.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-pirate-sarcastic-001",
+          "template": "This block walked the plank and somehow climbed back into the file.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-pirate-spicy-001",
+          "template": "This commented-out code has mutinied against clean diffs.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-pirate-dirty-001",
+          "template": "This commented-out code has been swabbing the deck with questionable leftovers.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "commentedout-corporate-kidfriendly-001",
+          "template": "Commented-out code is waiting for a cleanup meeting.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-corporate-lighthearted-001",
+          "template": "This commented-out code has been retained for 'historical context.'",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-corporate-average-001",
+          "template": "Commented-out code detected. It has been moved to parking lot purgatory.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-corporate-sarcastic-001",
+          "template": "This commented-out block is an undocumented stakeholder in the file.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-corporate-spicy-001",
+          "template": "This code was de-scoped but still attending all-hands.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "commentedout-corporate-dirty-001",
+          "template": "This commented-out block has been loitering after hours in the file.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    },
+    "MonsterClass": {
+      "displayName": "Monster Class",
+      "severity": "warning",
+      "defaultTopic": "fantasy",
+      "tags": [
+        "complexity",
+        "maintainability",
+        "design"
+      ],
+      "messages": [
+        {
+          "id": "monster-general-kidfriendly-001",
+          "template": "This class is big enough to need a lunchbox.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-general-lighthearted-001",
+          "template": "This class is not a class. It is a neighborhood.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-general-average-001",
+          "template": "This class has more responsibilities than a release manager on deploy day.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-general-sarcastic-001",
+          "template": "This class is doing everyone else's job and somehow still not getting promoted.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-general-spicy-001",
+          "template": "This class has achieved gravitational pull and is attracting unrelated logic.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-general-dirty-001",
+          "template": "This class is carrying so much baggage it needs an adult conversation.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-startrek-kidfriendly-001",
+          "template": "This class is large enough to need its own starship.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-startrek-lighthearted-001",
+          "template": "This class has achieved warp factor 9 and may need structural integrity fields.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-startrek-average-001",
+          "template": "This class is boldly going where several smaller classes should have gone instead.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-startrek-sarcastic-001",
+          "template": "This class has annexed half the quadrant and called it cohesion.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-startrek-spicy-001",
+          "template": "This class is a Borg cube of responsibilities: resistance to refactoring is futile.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-startrek-dirty-001",
+          "template": "This class has been sharing too much with the whole crew.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-starwars-kidfriendly-001",
+          "template": "This class is big enough to be a friendly space station.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-starwars-lighthearted-001",
+          "template": "This class is fully operational and roughly the size of a battle station.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-starwars-average-001",
+          "template": "This class has become the Death Star of responsibilities.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-starwars-sarcastic-001",
+          "template": "That's no class. That's an architectural moon.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-starwars-spicy-001",
+          "template": "This class has turned to the dark side of single responsibility.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-starwars-dirty-001",
+          "template": "This class is having an inappropriate relationship with every concern in the galaxy.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-football-kidfriendly-001",
+          "template": "This class is big enough to be the whole team photo.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-football-lighthearted-001",
+          "template": "This class is carrying the whole offense and still playing special teams.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-football-average-001",
+          "template": "This class is quarterback, coach, mascot, and concession stand.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-football-sarcastic-001",
+          "template": "This class has more roles than a two-way player in overtime.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-football-spicy-001",
+          "template": "This class is running every play and still calling itself maintainable.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-football-dirty-001",
+          "template": "This class is in a pileup with every responsibility on the field.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-fantasy-kidfriendly-001",
+          "template": "This class is a big friendly dragon guarding lots of code.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-fantasy-lighthearted-001",
+          "template": "A monster class was found guarding too many treasures.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-fantasy-average-001",
+          "template": "This class is a dragon hoarding methods instead of gold.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-fantasy-sarcastic-001",
+          "template": "This class has become the final boss of the namespace.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-fantasy-spicy-001",
+          "template": "This class is a hydra: split one responsibility and two more appear.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-fantasy-dirty-001",
+          "template": "This class has been fooling around with every module in the dungeon.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-pirate-kidfriendly-001",
+          "template": "This class is a ship carrying many barrels of code.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-pirate-lighthearted-001",
+          "template": "This class has enough cargo to sink a pirate ship.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-pirate-average-001",
+          "template": "This class is captain, crew, cannon, and suspicious parrot.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-pirate-sarcastic-001",
+          "template": "This class plundered every responsibility and buried cohesion at sea.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-pirate-spicy-001",
+          "template": "This class is a galleon overloaded with technical debt treasure.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-pirate-dirty-001",
+          "template": "This class has been below deck with far too many responsibilities.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "monster-corporate-kidfriendly-001",
+          "template": "This class has a very busy calendar.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-corporate-lighthearted-001",
+          "template": "This class is wearing too many hats for one meeting.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-corporate-average-001",
+          "template": "This class owns strategy, execution, reporting, snacks, and probably procurement.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-corporate-sarcastic-001",
+          "template": "This class has become a cross-functional alignment hub, which is a cry for help.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-corporate-spicy-001",
+          "template": "This class is a reorg waiting to happen.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "monster-corporate-dirty-001",
+          "template": "This class is having too many stakeholder touchpoints behind closed doors.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    },
+    "LongMethod": {
+      "displayName": "Long Method",
+      "severity": "warning",
+      "defaultTopic": "general",
+      "tags": [
+        "complexity",
+        "readability",
+        "refactoring"
+      ],
+      "messages": [
+        {
+          "id": "longmethod-general-kidfriendly-001",
+          "template": "This method is taking the scenic route.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-general-lighthearted-001",
+          "template": "This method started as logic and ended as a journey.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-general-average-001",
+          "template": "This method has chapters, plot twists, and a surprise return value.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-general-sarcastic-001",
+          "template": "This method is long enough to need a table of contents.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-general-spicy-001",
+          "template": "This method has side quests and none of them are optional.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-general-dirty-001",
+          "template": "This method is stretching itself in ways that make maintainers uncomfortable.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-startrek-kidfriendly-001",
+          "template": "This method is on a little mission through space.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-startrek-lighthearted-001",
+          "template": "This method is boldly going a bit farther than expected.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-startrek-average-001",
+          "template": "This method has a five-year mission and appears to be seeking new responsibilities.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-startrek-sarcastic-001",
+          "template": "Captain's log: we are still inside the same method.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-startrek-spicy-001",
+          "template": "This method crossed the Neutral Zone of readability three screens ago.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-startrek-dirty-001",
+          "template": "This method spent too long in the holodeck and came back with extra logic.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-starwars-kidfriendly-001",
+          "template": "This method is long enough for a small space adventure.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-starwars-lighthearted-001",
+          "template": "This method is long enough to need its own opening crawl.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-starwars-average-001",
+          "template": "This method has prequels, sequels, and questionable pacing.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-starwars-sarcastic-001",
+          "template": "Somehow, this method kept going.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-starwars-spicy-001",
+          "template": "This method is one trilogy away from becoming a franchise.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-starwars-dirty-001",
+          "template": "This method is getting a little too intimate with every branch condition.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-football-kidfriendly-001",
+          "template": "This method is running a very long play.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-football-lighthearted-001",
+          "template": "This method is on a long drive down the field.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-football-average-001",
+          "template": "This method is on a 98-yard drive with no commercial breaks.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-football-sarcastic-001",
+          "template": "This method has consumed the entire quarter and still has no first down.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-football-spicy-001",
+          "template": "This method is running hurry-up offense with nested conditionals.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-football-dirty-001",
+          "template": "This method is grinding through the pile like a muddy goal-line sneak.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-fantasy-kidfriendly-001",
+          "template": "This method is a long walk through an enchanted forest.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-fantasy-lighthearted-001",
+          "template": "This method is a quest with several unexpected tavern stops.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-fantasy-average-001",
+          "template": "This method began at the village and somehow reached the dragon's lair.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-fantasy-sarcastic-001",
+          "template": "This method has lore, side quests, and a questionable prophecy.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-fantasy-spicy-001",
+          "template": "This method is a dungeon crawl with no save point.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-fantasy-dirty-001",
+          "template": "This method has been wandering the dungeon getting tangled in every branch.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-pirate-kidfriendly-001",
+          "template": "This method is sailing across a very big code ocean.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-pirate-lighthearted-001",
+          "template": "This method sailed past the horizon and kept explaining itself.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-pirate-average-001",
+          "template": "This method is a sea voyage with storms, treasure, and too many flags.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-pirate-sarcastic-001",
+          "template": "This method needs a captain's log and a smaller boat.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-pirate-spicy-001",
+          "template": "This method is lost at sea with nested loops for ballast.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-pirate-dirty-001",
+          "template": "This method has been swabbing the deck for far too many lines.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "longmethod-corporate-kidfriendly-001",
+          "template": "This method has a very long agenda.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-corporate-lighthearted-001",
+          "template": "This method could have been two smaller meetings.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-corporate-average-001",
+          "template": "This method started as a sync and became a quarterly planning session.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-corporate-sarcastic-001",
+          "template": "This method has more sections than an enterprise slide deck.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-corporate-spicy-001",
+          "template": "This method is a workshop, breakout session, and action plan in one.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "longmethod-corporate-dirty-001",
+          "template": "This method has been spending after-hours time with too many responsibilities.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    },
+    "EmptyCatch": {
+      "displayName": "Empty Catch",
+      "severity": "warning",
+      "defaultTopic": "detective",
+      "tags": [
+        "exceptions",
+        "observability",
+        "reliability"
+      ],
+      "messages": [
+        {
+          "id": "emptycatch-general-kidfriendly-001",
+          "template": "This catch block caught something and forgot to say what.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-general-lighthearted-001",
+          "template": "An exception showed up and the catch block responded with the sound of silence.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-general-average-001",
+          "template": "This catch block caught an exception and immediately ghosted future debugging.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-general-sarcastic-001",
+          "template": "This catch block is handling errors through advanced denial.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-general-spicy-001",
+          "template": "This catch block is a black hole for evidence.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-general-dirty-001",
+          "template": "This catch block swept the exception under the rug and winked.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-startrek-kidfriendly-001",
+          "template": "This catch block muted the red alert.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-startrek-lighthearted-001",
+          "template": "This catch block received a distress signal and put it on silent.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-startrek-average-001",
+          "template": "An exception hailed the bridge and nobody answered.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-startrek-sarcastic-001",
+          "template": "Captain's log: the exception vanished, and apparently that's fine.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-startrek-spicy-001",
+          "template": "This catch block ejected the error log out the airlock.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-startrek-dirty-001",
+          "template": "This catch block took the exception to the holodeck and came back alone.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-starwars-kidfriendly-001",
+          "template": "This catch block used the Force to make an error disappear.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-starwars-lighthearted-001",
+          "template": "An exception appeared and this catch block Jedi-mind-tricked it away.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-starwars-average-001",
+          "template": "This is not the exception log you are looking for.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-starwars-sarcastic-001",
+          "template": "The exception was struck down and became less observable than you can possibly imagine.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-starwars-spicy-001",
+          "template": "This catch block tossed the exception into the Sarlacc pit of silence.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-starwars-dirty-001",
+          "template": "This catch block had a secret meeting with the exception and deleted the minutes.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-football-kidfriendly-001",
+          "template": "This catch block caught the ball and forgot to tell the team.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-football-lighthearted-001",
+          "template": "This catch block made the catch but skipped the replay.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-football-average-001",
+          "template": "An exception was caught, but the refs have no footage.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-football-sarcastic-001",
+          "template": "This catch block called a fair catch on observability.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-football-spicy-001",
+          "template": "This catch block recovered the fumble and buried it under the turf.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-football-dirty-001",
+          "template": "This catch block took the exception into the pile and things got messy.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-fantasy-kidfriendly-001",
+          "template": "This catch block caught a tiny gremlin and let it vanish.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-fantasy-lighthearted-001",
+          "template": "This catch block caught a goblin and released it without a quest note.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-fantasy-average-001",
+          "template": "An exception entered this block and became a tavern rumor.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-fantasy-sarcastic-001",
+          "template": "This catch block banished the error to the realm of 'probably fine.'",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-fantasy-spicy-001",
+          "template": "This catch block fed the exception to the void dragon.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-fantasy-dirty-001",
+          "template": "This catch block took the exception into the dungeon and lost the paperwork.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-pirate-kidfriendly-001",
+          "template": "This catch block caught a fish and forgot to tell the captain.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-pirate-lighthearted-001",
+          "template": "This catch block tossed the exception overboard without a note.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-pirate-average-001",
+          "template": "An exception walked the plank and no one updated the logbook.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-pirate-sarcastic-001",
+          "template": "This catch block buried the error treasure and burned the map.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-pirate-spicy-001",
+          "template": "This catch block fed the exception to the kraken of silence.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-pirate-dirty-001",
+          "template": "This catch block took the exception below deck and came back suspiciously quiet.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "emptycatch-corporate-kidfriendly-001",
+          "template": "This catch block had an issue but forgot the meeting notes.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-corporate-lighthearted-001",
+          "template": "This catch block resolved the issue by not documenting it.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-corporate-average-001",
+          "template": "An exception occurred, but the meeting minutes are blank.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-corporate-sarcastic-001",
+          "template": "This catch block moved the error to the parking lot and never returned.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-corporate-spicy-001",
+          "template": "This catch block de-risked the exception by deleting all evidence.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "emptycatch-corporate-dirty-001",
+          "template": "This catch block took the exception into a closed-door meeting and no action items survived.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    },
+    "LargeFile": {
+      "displayName": "Large File",
+      "severity": "warning",
+      "defaultTopic": "general",
+      "tags": [
+        "maintainability",
+        "readability",
+        "organization"
+      ],
+      "messages": [
+        {
+          "id": "largefile-general-kidfriendly-001",
+          "template": "This file is big enough to need a bookmark.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-general-lighthearted-001",
+          "template": "This file has the energy of a small planet.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-general-average-001",
+          "template": "This file has enough code to qualify as a weekend plan.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-general-sarcastic-001",
+          "template": "This file is less source code and more a historical archive.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-general-spicy-001",
+          "template": "This file has grown beyond its container and is affecting nearby namespaces.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-general-dirty-001",
+          "template": "This file is showing way too much code in one place.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "general"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-startrek-kidfriendly-001",
+          "template": "This file is big enough to fill a starship library.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-startrek-lighthearted-001",
+          "template": "This file may require a star chart to navigate.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-startrek-average-001",
+          "template": "This file is approaching starbase size.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-startrek-sarcastic-001",
+          "template": "This file contains enough sections to justify a Federation council hearing.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-startrek-spicy-001",
+          "template": "This file is a spatial anomaly consuming editor scrollbars.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-startrek-dirty-001",
+          "template": "This file has been sharing its contents with the whole quadrant.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starTrek"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-starwars-kidfriendly-001",
+          "template": "This file is big enough for a little space saga.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-starwars-lighthearted-001",
+          "template": "This file is large enough to need an opening crawl.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-starwars-average-001",
+          "template": "This file is roughly the size of a small moon.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-starwars-sarcastic-001",
+          "template": "That's no file. That's a battle station.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-starwars-spicy-001",
+          "template": "This file has joined the dark side of maintainability.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-starwars-dirty-001",
+          "template": "This file is exposing more than the Jedi council would approve.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "starWars"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-football-kidfriendly-001",
+          "template": "This file is big enough to be the whole playbook.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-football-lighthearted-001",
+          "template": "This file has more pages than a coach's laminated play sheet.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-football-average-001",
+          "template": "This file contains offense, defense, special teams, and a snack schedule.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-football-sarcastic-001",
+          "template": "This file has more formations than the playbook and less organization.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-football-spicy-001",
+          "template": "This file is taking up the entire field and still wants possession.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-football-dirty-001",
+          "template": "This file is making a messy pileup at the line of scrimmage.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "football"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-fantasy-kidfriendly-001",
+          "template": "This file is a big magical book of code.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-fantasy-lighthearted-001",
+          "template": "This file is a wizard scroll that may need a smaller spellbook.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-fantasy-average-001",
+          "template": "This file has enough lore to make a bard nervous.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-fantasy-sarcastic-001",
+          "template": "This file is an ancient tome with no index and too many curses.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-fantasy-spicy-001",
+          "template": "This file is a dragon hoard of unrelated logic.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-fantasy-dirty-001",
+          "template": "This file has been rolling around the dungeon with every concern it could find.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "fantasy"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-pirate-kidfriendly-001",
+          "template": "This file is a big treasure chest of code.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-pirate-lighthearted-001",
+          "template": "This file is carrying more cargo than a pirate galleon.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-pirate-average-001",
+          "template": "This file has treasure maps, cannonballs, and several unrelated parrots.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-pirate-sarcastic-001",
+          "template": "This file is a ship manifest pretending to be source code.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-pirate-spicy-001",
+          "template": "This file is so overloaded it may sink the build ship.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-pirate-dirty-001",
+          "template": "This file is below deck with too much cargo and not enough supervision.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "pirate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        },
+        {
+          "id": "largefile-corporate-kidfriendly-001",
+          "template": "This file has a very big agenda.",
+          "humorLevels": [
+            "kidFriendly"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 0,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-corporate-lighthearted-001",
+          "template": "This file is large enough to require a pre-read.",
+          "humorLevels": [
+            "lightHearted"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 1,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-corporate-average-001",
+          "template": "This file has become a cross-functional working group.",
+          "humorLevels": [
+            "average"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 2,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-corporate-sarcastic-001",
+          "template": "This file has too many sections and somehow no executive summary.",
+          "humorLevels": [
+            "sarcastic"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 3,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-corporate-spicy-001",
+          "template": "This file is a quarterly planning deck with syntax highlighting.",
+          "humorLevels": [
+            "spicy"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 4,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": false
+        },
+        {
+          "id": "largefile-corporate-dirty-001",
+          "template": "This file has been oversharing in the team workspace.",
+          "humorLevels": [
+            "dirty"
+          ],
+          "topics": [
+            "corporate"
+          ],
+          "channels": [
+            "email",
+            "teams",
+            "cli"
+          ],
+          "spice": 5,
+          "weight": 10,
+          "enabled": true,
+          "requiresAdultMode": true
+        }
+      ]
+    }
+  },
+  "fallbacks": {
+    "noTopicMatch": [
+      {
+        "id": "fallback-no-topic-001",
+        "template": "The analyzer found something suspicious, but the joke generator wandered off.",
+        "humorLevels": [
+          "kidFriendly",
+          "lightHearted",
+          "average"
+        ],
+        "topics": [
+          "general"
+        ],
+        "channels": [
+          "email",
+          "teams",
+          "cli"
+        ],
+        "weight": 10,
+        "enabled": true,
+        "requiresAdultMode": false
+      }
+    ],
+    "noHumorLevelMatch": [
+      {
+        "id": "fallback-no-humor-001",
+        "template": "A finding was detected. Humor unavailable; goblin currently rebooting.",
+        "humorLevels": [
+          "kidFriendly",
+          "lightHearted"
+        ],
+        "topics": [
+          "general"
+        ],
+        "channels": [
+          "email",
+          "teams",
+          "cli"
+        ],
+        "weight": 10,
+        "enabled": true,
+        "requiresAdultMode": false
+      }
+    ]
+  }
+}

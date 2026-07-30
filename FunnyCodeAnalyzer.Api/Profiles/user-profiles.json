@@ -1,0 +1,60 @@
+{
+  "profiles": [
+    {
+      "userIdentifier": "dev-a-token",
+      "name": "Developer A",
+      "email": "developer.a@example.com",
+      "preferredTopics": [
+        "starwars",
+        "starttrek"
+      ],
+      "preferredHumorModes": [
+        "average",
+        "lightHearted"
+      ],
+      "commonIssues": [
+        "CommentedOutCode",
+        "TodoComment"
+      ],
+      "updatedUtc": "2026-07-29T00:00:00Z"
+    },
+    {
+      "userIdentifier": "dev-b-token",
+      "name": "Developer B",
+      "email": "developer.b@example.com",
+      "preferredTopics": [
+        "general",
+        "office"
+      ],
+      "preferredHumorModes": [
+        "lightHearted",
+        "average"
+      ],
+      "commonIssues": [
+        "IssueSuppression",
+        "EmptyCatch"
+      ],
+      "updatedUtc": "2026-07-29T00:00:00Z"
+    },
+    {
+      "userIdentifier": "dev-c-token",
+      "name": "Developer C",
+      "email": "developer.c@example.com",
+      "preferredTopics": [
+        "scifi",
+        "general",
+        "retro"
+      ],
+      "preferredHumorModes": [
+        "average",
+        "lightHearted"
+      ],
+      "commonIssues": [
+        "LongMethod",
+        "MonsterClass",
+        "LargeFile"
+      ],
+      "updatedUtc": "2026-07-29T00:00:00Z"
+    }
+  ]
+}
