@@ -55,7 +55,6 @@ The solution consists of three primary components:
    - Stores user profiles, including email address, Teams username, and unique user token.
    - Tracks issue counts per user and exposes metrics.
 
-```mermaid
 flowchart TD
     A[Console Application] --> B[Local Directory or Repo]
     B --> C{Git or SVN?}
